@@ -15,29 +15,33 @@ typedef struct SqList {
 
 } SqList;
 
-int main() {
-    SqList sqList;
-    cout << "原数组为：";
-    if(sqList.length == 0) {
-        cout << "error, the array is empty";
-        return 0;
-    }
-    for(int i = 0; i < sqList.length; ++i) {
-        cout << sqList.a[i] << " ";
-    }
-    cout << endl;
-
+void process(SqList & sqList) {
     int minx = sqList.a[0], index = 0;
     for(int i = 0; i < sqList.length; ++i) {
         if(sqList.a[i] < minx) {
             index = i;
             minx = sqList.a[i];
         }
-
     }
 
     sqList.a[index] = sqList.a[sqList.length - 1];
     sqList.length -= 1;
+}
+
+int main() {
+    SqList sqList;
+    if(sqList.length == 0) {
+        cout << "error, the array is empty";
+        return 0;
+    }
+
+    cout << "原数组为：";
+    for(int i = 0; i < sqList.length; ++i) {
+        cout << sqList.a[i] << " ";
+    }
+    cout << endl;
+
+    process(sqList);
 
     cout << "现在的元素为：";
     for(int i = 0; i < sqList.length; ++i) {

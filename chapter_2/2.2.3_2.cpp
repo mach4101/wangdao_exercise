@@ -16,18 +16,23 @@ void swap(int & a, int & b) {
     b = t;
 }
 
+void process(SqList & sqList) {
+    int mid = sqList.length / 2;
+    for(int i = 0; i < mid; ++i){
+        swap(sqList.a[i], sqList.a[sqList.length - i - 1]);
+    }
+}
+
 int main() {
     SqList sqList;
-    int mid = sqList.length / 2;
+
     cout << "原数组为：";
     for(int i = 0; i < sqList.length; ++i) {
         cout << sqList.a[i] << " ";
     }
     cout << endl;
 
-    for(int i = 0; i < mid; ++i){
-        swap(sqList.a[i], sqList.a[sqList.length - i - 1]);
-    }
+    process(sqList);
 
     cout << "逆置后的数组为：";
     for (int i = 0; i < sqList.length; ++i) {
