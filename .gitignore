@@ -1,0 +1,11 @@
+# CMake文件
+CMakeLists.txt
+cmake-build-debug
+
+# CPP编译产生的目标文件
+*.exe
+*.txt
+*.out
+*.app
+*.c
+*.obj
