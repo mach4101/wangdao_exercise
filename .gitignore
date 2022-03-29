@@ -12,3 +12,4 @@ cmake-build-debug
 
 # 配置文件
 .xml
+.js
