@@ -9,3 +9,6 @@ cmake-build-debug
 *.app
 *.c
 *.obj
+
+# 配置文件
+.xml
