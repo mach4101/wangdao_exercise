@@ -1,3 +1,9 @@
+# Clion配置文件
+.idea
+
+# vscode配置文件
+.vscode
+
 # CMake文件
 CMakeLists.txt
 cmake-build-debug
