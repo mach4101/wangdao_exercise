@@ -12,8 +12,12 @@
       <paths name="Raspberry (d100d90a-bc56-454f-a51f-158957378f30)">
         <serverdata>
           <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/tmp/wangdao_exercise" local="$PROJECT_DIR$" />
           </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-raspberry" />
+            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-debug-raspberry" />
+          </excludedPaths>
         </serverdata>
       </paths>
       <paths name="home (23ac82b3-e01b-4fb5-9974-0860d0e4d786)">
