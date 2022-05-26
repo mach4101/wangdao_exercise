@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/wangdao_exercise.dir/chapter_2/2.2.3_8.cpp.o"
-  "CMakeFiles/wangdao_exercise.dir/chapter_2/2.2.3_8.cpp.o.d"
+  "CMakeFiles/wangdao_exercise.dir/chapter_2/2.2.3_9.cpp.o"
+  "CMakeFiles/wangdao_exercise.dir/chapter_2/2.2.3_9.cpp.o.d"
   "wangdao_exercise"
   "wangdao_exercise.pdb"
 )
