@@ -8,6 +8,10 @@
 CMakeLists.txt
 cmake-build-debug
 
+# debug配置文件
+/cmake-build-debug
+/cmake-build-debug-raspberry
+
 # CPP编译产生的目标文件
 *.exe
 *.txt
