@@ -38,8 +38,10 @@ int main()
     LL res = 1e18;
 
     for (int i = 0, j = 0, k = 0; i < l && j < m && k < n;) {
+
         int x=  a[i], y = b[j], z = c[k];
-        res = min(res, (LL)max(max(x, y), z) - min(min(x, y), z));
+        res = min( res, (LL)max( max(x, y), z ) - min( min(x, y), z ) );
+
         if(x <= y && x <= z)
             i++;
         else if(y <= x && y <= z)
