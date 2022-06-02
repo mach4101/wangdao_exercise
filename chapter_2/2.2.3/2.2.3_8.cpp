@@ -17,9 +17,9 @@ void reverse(int A[], int left, int right, int arraySize) {
 
     int mid = (left + right) / 2;
     for(int i = 0; i <= mid - left; i ++) {//上限错了
-        int tmp = A[left + i];
-        A[left + i] = A[right - i];
-        A[right - i] = tmp;
+        int tmp = A[left + i]; // 首部放入寄存器
+        A[left + i] = A[right - i]; // 尾部放入首部
+        A[right - i] = tmp; // 首部数据放入尾部
     }
 }
 
