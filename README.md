@@ -4,6 +4,8 @@
 
 Note：由于目前本仓库有两位作者，mach4101和wulnut，因此目前有两种代码风格供大家查看，其中以mach4101作为后缀名的文件为mach4101所写
 
+视频讲解：链接: https://pan.baidu.com/s/1tTLaKluN8Iry463VGBjnuw?pwd=w7jl 提取码: w7jl （随缘更新）
+
 ## 第二章 线性表
 
 ### 2.2.3 综合运用题 &#x1F609;
