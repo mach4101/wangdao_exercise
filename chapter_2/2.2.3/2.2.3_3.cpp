@@ -19,11 +19,11 @@ void process(SqList & sqList, int x) {
     //往后面扫描的同时记录x的数量
     int count = 0;
     for(int i = 0; i < sqList.length; ++i) {
-        if(sqList.a[i] == x) count++;
+        if(sqList.a[i] == x) count++;          //如果当前元素为x，将其跳过，并且记录count的个数
         else
-            sqList.a[i - count] = sqList.a[i];
+            sqList.a[i - count] = sqList.a[i]; //如果不是x，就需要往前移动x的数量的位置
     }
-    sqList.length -= count;
+    sqList.length -= count;                    //更新长度
 }
 
 int main() {

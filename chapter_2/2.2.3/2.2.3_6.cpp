@@ -12,15 +12,15 @@ typedef struct SqList{
 } SqList;
 
 void process(SqList & sqList) {
-    int count = 0;
+    int count = 1;
     for(int i = 1; i < sqList.length; ++i) {
-        if(sqList.a[i] == sqList.a[i - 1 - count]) { //当前元素和前count + 1个元素相同
+        if(sqList.a[i] == sqList.a[i - count]) { //当前元素和前count个元素相同
             count++;
         } else {
-            sqList.a[i - count] = sqList.a[i];
+            sqList.a[i - count + 1] = sqList.a[i];
         }
     }
-    sqList.length -= count;
+    sqList.length = sqList.length - count + 1;
 }
 
 int main() {

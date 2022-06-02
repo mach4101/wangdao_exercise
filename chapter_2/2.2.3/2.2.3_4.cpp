@@ -14,7 +14,7 @@ typedef struct SqList{
 void process(SqList & sqList, int s, int t) {
     int count  = 0;
     for(int i = 0; i < sqList.length; ++i) {
-        if(sqList.a[i] >= s && sqList.a[i] <= t) {
+        if(sqList.a[i] > s && sqList.a[i] < t) {
             count ++;
         } else {
             sqList.a[i - count] = sqList.a[i];
