@@ -27,7 +27,7 @@ SqList process(SqList sqList1, SqList sqList2) {
         sqList3.a[cur++] = sqList2.a[j++];
     }
 
-    sqList3.length = cur;                              //更新链表长度
+    sqList3.length = cur;                              //更新顺序表长度
     return sqList3;                                    //返回表
 }
 
