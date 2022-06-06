@@ -12,13 +12,6 @@ cmake-build-debug
 /cmake-build-debug
 /cmake-build-debug-raspberry
 
-/cmake-build-debug-raspberry/CMakeFiles/Makefile.cmake
-/cmake-build-debug-raspberry/CMakeFiles/wangdao_exercise.dir/DependInfo.cmake
-/cmake-build-debug-raspberry/CMakeFiles/wangdao_exercise.dir/build.make
-/cmake-build-debug-raspberry/CMakeFiles/wangdao_exercise.dir/cmake_clean.cmake
-/cmake-build-debug-raspberry/Makefile
-/cmake-build-debug-raspberry/Testing/Temporary/LastTest.log
-/cmake-build-debug-raspberry/wangdao_exercise.cbp
 # CPP编译产生的目标文件
 *.exe
 *.txt
@@ -26,3 +19,7 @@ cmake-build-debug
 *.app
 *.c
 *.obj
+
+# 配置文件
+.xml
+.js
