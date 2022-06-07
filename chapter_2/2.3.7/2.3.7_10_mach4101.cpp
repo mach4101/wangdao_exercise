@@ -57,7 +57,7 @@ LinkedList SplitLinkedList(LinkedList & L, LinkedList & A, LinkedList & B) {
             p = q;                     // p重新接回来
         } else {         // 插入到B链表中
             LinkedList q = p -> next;  // q为临时指针，防止断链
-            b_tail -> next = p;        // 将p接在A链表的尾部
+            b_tail -> next = p;        // 将p接在B链表的尾部
             p -> next = NULL;          // 尾部元素指针域设置为空
             b_tail = p;                // 由于插入了新元素，因此需要更新尾指针
             p = q;                     // p重新接回来
