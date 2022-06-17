@@ -55,7 +55,6 @@ void Print(LinkedList L) {
 }
 
 bool check(LinkedList L1, LinkedList L2) {
-    int L1_length = 7, L2_length = 4;
     LinkedList p1 = L1 -> next, p2 = L2 -> next;
     while(p1) {
         LinkedList q = p1;                             // 记录p1目前所在的位置
