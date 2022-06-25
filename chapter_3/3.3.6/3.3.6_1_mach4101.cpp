@@ -35,12 +35,12 @@ void Pop(Stack & S, char & a) {
 bool match(char * s) {
     Stack stack;
     int i = 0;
-    while(s[i] != '\0') {
-        if(s[i] == '(' || s[i] == '[' || s[i] == '{')
+    while(s[i] != '\0') {                                //遍历串
+        if(s[i] == '(' || s[i] == '[' || s[i] == '{')    //左括号入栈
             Push(stack, s[i]);
 
-        // 若是三个又括号
-        else if (s[i] == ')') {
+        // 若是三个右括号
+        else if (s[i] == ')') {                          //若是右括号，取出栈顶元素，判断是否和左括号能够匹配，如果不能就直接false
             char tmp;
             Pop(stack, tmp);
             if(tmp != '(') return false;
@@ -54,17 +54,17 @@ bool match(char * s) {
             if(tmp != '{') return false;
         }
 
-        i ++;
+        i ++; //下一个
     }
 
-    if(!IsEmpty(stack)) return false;
+    if(!IsEmpty(stack)) return false; //如果栈没空，说明有多的左括号，直接寄
     return true;
 }
 
 
 int main() {
-    char * str = "(()[])";
-    if(match(str)) {
+    char * str = "(()[])";   //待检测的字符串
+    if(match(str)) {      //检查是否匹配
         cout << "匹配成功" << endl;
     } else {
         cout << "匹配失败" << endl;
