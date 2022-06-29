@@ -6,14 +6,14 @@
 using namespace std;
 
 typedef struct SqTree {
-    // 例图中的ABCDEFGHI 使用 123456789 来代替
-    int data[16] = {-1, 1, 2, 3, 4, 5, 6, 7, -1, -1, -1, -1, 8, 9, -1, -1};
+    // 使用字母N来表示无意义的点
+    char data[16] = {'N', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'N', 'N', 'N', 'N', 'H', 'I', 'N', 'N'};
 };
 
-int LCA(SqTree Tree, int i, int j) {
+char LCA(SqTree Tree, int i, int j) {
     // 寻找下标为i, j的最近公共祖先
-    if (Tree.data[i] != -1 && Tree.data[j] != -1) {  // 若能满足条件，说明肯定有公共祖先，最起码根节点是，因此如果不满足条件直接返回-1
-        while(i != j) {
+    if (Tree.data[i] != 'N' && Tree.data[j] != 'N') {  // 若能满足条件，说明肯定有公共祖先，最起码根节点是，因此如果不满足条件直接返回-1
+        while(i != j) {                                // i和j谁大谁往上跳
             if(i > j)
                 i = i / 2;
             else
@@ -21,11 +21,11 @@ int LCA(SqTree Tree, int i, int j) {
         }
         return Tree.data[i];
     }
-    return -1;
+    return 'N';
 }
 
 int main() {
     SqTree Tree;
-    cout << LCA(Tree, 12, 13) << endl;  // i和j是对应的下标, data[12] = H， data[13] = I，他们的最近公共祖先是F
+    cout << LCA(Tree, 12, 13) << endl;  // data[12] = H， data[13] = I，他们的最近公共祖先是F
     return 0;
 }
