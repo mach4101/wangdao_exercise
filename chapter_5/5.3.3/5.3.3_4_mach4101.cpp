@@ -10,7 +10,6 @@ using namespace std;
 // 二叉树的前序序列为：ABD##E##CFH##I##G##
 typedef struct BiNode {
     char data;  // 数据域
-    int tag;   // 标志域
     struct BiNode * lchild, * rchild;
 } BiNode, * BiTree;
 
@@ -25,7 +24,6 @@ void Build(BiTree & T) {
     else {
         T = (BiTree) malloc(sizeof(BiNode)); // 申请一个节点空间
         T -> data = ch;                           // 为其赋值
-        T -> tag = 0;                             // 标志域，表示还没有被访问过
         T -> lchild = NULL;                       // 左右孩子都设置为空
         T -> rchild = NULL;
         Build(T -> lchild);                    // 递归创建左孩子
