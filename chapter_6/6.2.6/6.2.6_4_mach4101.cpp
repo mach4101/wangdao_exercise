@@ -2,6 +2,21 @@
 // Created by mach4101 on 2022/7/16.
 //
 
+/*
+
+输入样例：
+5 7
+a b c d e
+a b
+a e
+b c
+b d
+b e
+c d
+d e
+ 
+ * */
+
 
 #include<iostream>
 using namespace std;
