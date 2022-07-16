@@ -26,26 +26,27 @@ d e
 #include<iostream>
 using namespace std;
 
-#define MaxVertxNum 100
+#define MaxVertexNum 100
 
-
-// 邻接表结点
-typedef struct ArcNode{
-    int adjvex;
-    ArcNode * next;
+//*****************************************// 邻接表的结构
+// 边表结点
+typedef struct ArcNode {
+    int adjvex;     //当前结点的编号
+    ArcNode * next; //指向下一个结点的指针
 } ArcNode;
 
-// 顶点表结点
+//顶点表结点
 typedef struct VNode {
-    char data;
-    ArcNode * first;
-} VNode, AdjList[MaxVertxNum];
+    char data;                    // 用于存放结点编号所对应的数据
+    ArcNode * first;             // 指向与该边相链接的第一个边表结点
+} VNode, AdjList[MaxVertexNum];  // 这里的AdjList表示定义了一个数组，数组中的每个元素的类型是VNode型，以后可以直接使用AdjList a; 表示创建一个名为a的数组
 
-// 图结构
+// 图结构 Adjacency List -- 邻接表
 typedef struct ALGraph {
-   AdjList vertices;
-   int arcnum, vertexnum;
-} ALGraph;
+    AdjList vertices;            // 图包含链接表
+    int vertexnum, arcnum;       //结点的个数以及弧的数量
+};
+
 
 // 根据结点值找到结点的编号
 int Locate(ALGraph G, char x) {
@@ -53,11 +54,12 @@ int Locate(ALGraph G, char x) {
         if(G.vertices[i].data == x)
             return i;
     }
+    return -1;
 }
 
 // 创建图
-void CreateGraph(ALGraph G) {
-    cout << "输入节点数和边的数量：";
+void CreateGraph(ALGraph & G) {
+    cout << "输入结点数和边数，并且用空格来隔开:";
     cin >> G.vertexnum >> G.arcnum;
 
     // 顶点表信息保存：
@@ -67,35 +69,41 @@ void CreateGraph(ALGraph G) {
         G.vertices[i - 1].first = NULL;
     }
 
-    // 边表信息保存
-    for(int i = 0; i < G.arcnum; ++i) {
-        char e1, e2;
-        cin >> e1 >> e2;
+    // 边表信息保存：
+    for(int i = 1; i <= G.arcnum; ++i) {
+        char e1, e2; // 两个结点可以确定一条边
+        cout << "输入第" << i << "条边的顶点：";
+        cin >> e1 >> e2; //输入边
+
+        // 根据输入的结点值找到其所对应的下标
         int vi = Locate(G, e1);
         int vj = Locate(G, e2);
 
-        ArcNode * p = new ArcNode;
-        p -> adjvex = vj;
-        p -> next = G.vertices[vj].first;
-        G.vertices[vj].first = p;
+        // 开始插入, 先将vj插入到vi的后面
+        ArcNode * e = new ArcNode; // 申请一个边表结点空间
+        e -> adjvex = vj;
+        e -> next = G.vertices[vi].first;
+        G.vertices[vi].first = e;
 
-        p = new ArcNode;
-        p -> adjvex = vi;
-        p -> next = G.vertices[vi].first;
-        G.vertices[vi].first = p;
+        // 再将vi插入到vj的后面
+        e = new ArcNode;
+        e -> adjvex = vi;
+        e -> next = G.vertices[vj].first;
+        G.vertices[vj].first = e;
     }
 }
 
-
-bool visited[MaxVertxNum];
+bool visited[MaxVertexNum];
 int edge = 0; // 记录访问过的边的数量
 
 void DFS(ALGraph G, int x) { // 从顶点x开始进行dfs
     visited[x] = true;
     ArcNode * p = G.vertices[x].first;
 
+    cout << G.vertices[x].data << " ";
+
     while(p) {
-        edge++;
+        edge ++;
         if(!visited[p -> adjvex]) {
             DFS(G, p -> adjvex);
         }
@@ -110,7 +118,7 @@ bool GraphIsTree(ALGraph G) {
             return false;
         }
     }
-
+    cout << edge << endl;
     if(edge != 2 * (G.vertexnum - 1) ) {
         return false;
     }
@@ -121,11 +129,11 @@ bool GraphIsTree(ALGraph G) {
 int main() {
     ALGraph G;
     CreateGraph(G);
-    // 进行dfs
     if(GraphIsTree(G)) {
-        cout << "Yes" << endl;
+        cout << "树" << endl;
     } else {
-        cout << "No" << endl;
+        cout << "图" << endl;
     }
+
     return 0;
 }
