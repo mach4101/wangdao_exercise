@@ -8,8 +8,7 @@
 
 
 /*
-
-输入样例：
+图的输入样例如下
 5 7
 a b c d e
 a b
@@ -19,8 +18,14 @@ b d
 b e
 c d
 d e
-
- * */
+树的输入样例如下
+5 4
+a b c d e
+a b
+a c
+a d
+b e
+*/
 
 
 #include<iostream>
