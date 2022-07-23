@@ -27,7 +27,7 @@ typedef struct ALGraph {
 
 // 根据结点的数据来查找对应的编号
 int Locate(ALGraph & G, char x) {
-    for(int i = 0; i < G.vertexnum; ++i) {
+    for(int i = 1; i <= G.vertexnum; ++i) {
         if(G.vertices[i].data == x) {
             return i;
         }

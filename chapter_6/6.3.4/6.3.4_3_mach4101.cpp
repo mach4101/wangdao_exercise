@@ -24,7 +24,7 @@ typedef struct ALGraph {
 } ALGraph;
 
 int Locate(ALGraph G, char data) {
-    for (int i = 0; i < G.vertexnum; ++i) {
+    for (int i = 1; i <= G.vertexnum; ++i) {
         if(G.vertices[i].data == data)
             return i;
     }
@@ -32,7 +32,7 @@ int Locate(ALGraph G, char data) {
 
 void CreateGraph(ALGraph & G) {
     cin >> G.vertexnum >> G.arcnum;
-    for(int i = 0; i < G.vertexnum; ++i) {
+    for(int i = 1; i <= G.vertexnum; ++i) {
         cin >> G.vertices[i].data;
         G.vertices[i].first = NULL;
     }
