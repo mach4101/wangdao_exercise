@@ -42,22 +42,22 @@ void PreOrder(BiTree T) {
 }
 
 bool IsSortTree(BiTree T) {
-    if(T -> lchild && T -> rchild) {
+    if(T -> lchild && T -> rchild) {  // 若左右孩子都存在，首先同一层次相比较，然后递归判断左子树右子树
         return T -> lchild -> data <= T -> data && T -> data <= T -> rchild -> data && IsSortTree(T -> lchild) &&
                 IsSortTree(T -> rchild);
     }
 
-    if(T -> lchild && T -> rchild == NULL) {
+    if(T -> lchild && T -> rchild == NULL) { // 若只存在左子树，首先同一层次相比较，然后递归判断左子树
         return T -> lchild -> data <= T -> data && IsSortTree(T -> lchild);
     }
 
-    if(T -> lchild == NULL && T -> rchild) {
+    if(T -> lchild == NULL && T -> rchild) { // 若只存在右子树，首先同一层次相比较，然后递归判断右子树
         return T -> rchild -> data >= T -> data && IsSortTree(T -> rchild);
     }
 
+    // 边界条件，根据我们前面的判断，T不可能是空树，如果T是空的则不可能进来，但是可能会存在左右子树均为空的情况，这个时候说明到了叶子结点，那么返回true
     if(T -> lchild == NULL && T -> rchild == NULL)
         return true;
-
 }
 
 int main() {
